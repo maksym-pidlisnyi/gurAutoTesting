@@ -48,8 +48,4 @@ public class TestConfigurations {
         return read("main_url") + read(name);
     }
 
-    public static String getApiToken() {
-        return new String(Base64.getDecoder().decode(read("api_token")));
-    }
-
 }

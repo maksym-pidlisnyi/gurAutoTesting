@@ -5,7 +5,7 @@ import org.academy.api.Resources
 
 class DishesRequests: AbstractRequests() {
 
-    fun createDish(token: String, body: String, responseCode: Int): Response {
-        return postRequests.withToken(token, body, responseCode, Resources.restaurants)
+    fun createDish(body: String, responseCode: Int): Response {
+        return postRequests.withToken(body, responseCode, Resources.restaurants)
     }
 }

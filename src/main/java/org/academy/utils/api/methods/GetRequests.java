@@ -18,13 +18,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GetRequests {
     private ApiWaiter apiWaiter = new ApiWaiter();
 
-    public Response withToken(String encryptedToken, int responseCode, String resources) {
-        String token = new String(Base64.getDecoder().decode(encryptedToken));
+    public Response withToken(int responseCode, String resources) {
         ValidateResponseWaiter responseWaiter = () -> {
             RestAssured.baseURI = TestConfigurations.getApiUrl();
             return given()
                     .relaxedHTTPSValidation()
-                    .auth().oauth2(token)
                     .contentType(ContentType.JSON)
                     .header("Accept", "application/vnd.github.v3+json")
                     .when()

@@ -3,6 +3,8 @@ package org.academy.api.tests.gur
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.academy.TestConfigurations
 import org.academy.api.pojo.Dish
+import org.academy.api.pojo.Location
+import org.academy.api.pojo.Restaurant
 import org.academy.api.requests.RestaurantsRequests
 import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.Test
@@ -12,17 +14,17 @@ class RestaurantsTest {
 
     @Test
     fun createRestaurant() {
-        val dish = Dish(
+        val restaurant = Restaurant(
             "Test1",
-            "ttps://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
-            1,
-            "some Text",
-            250.0,
-            350.0
+            "правди 10",
+            "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+            Location("30.591311", "50.460569"),
+            "07:30 AM",
+            "09:30 PM",
         )
         val mapper = ObjectMapper()
-        val body = mapper.writeValueAsString(dish)
-        val response = restaurantsRequests.createRestaurant(TestConfigurations.getApiToken(), body,201)
+        val body = mapper.writeValueAsString(restaurant)
+        val response = restaurantsRequests.createRestaurant(body,201)
         assertThat(response.statusCode).isEqualTo(201)
     }
 }

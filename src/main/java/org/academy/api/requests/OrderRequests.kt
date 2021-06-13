@@ -5,7 +5,7 @@ import org.academy.api.Resources
 
 class OrderRequests: AbstractRequests() {
 
-    fun createOrder(token: String, body: String, responseCode: Int): Response {
-        return postRequests.withToken(token, body, responseCode, Resources.restaurants)
+    fun createOrder(body: String, responseCode: Int): Response {
+        return postRequests.withToken(body, responseCode, Resources.restaurants)
     }
 }

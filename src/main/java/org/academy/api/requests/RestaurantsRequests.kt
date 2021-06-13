@@ -7,7 +7,7 @@ import org.academy.api.Resources
 @Slf4j
 class RestaurantsRequests : AbstractRequests() {
 
-    fun createRestaurant(token: String, body: String, responseCode: Int): Response {
-        return postRequests.withToken(token, body, responseCode, Resources.restaurants)
+    fun createRestaurant(body: String, responseCode: Int): Response {
+        return postRequests.withToken(body, responseCode, Resources.restaurants)
     }
 }

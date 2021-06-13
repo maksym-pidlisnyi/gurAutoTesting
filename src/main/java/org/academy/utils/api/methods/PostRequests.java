@@ -17,12 +17,11 @@ public class PostRequests {
 
     private ApiWaiter apiWaiter = new ApiWaiter();
 
-    public Response withToken(String token, String body, int responseCode, String resources) {
+    public Response withToken(String body, int responseCode, String resources) {
         ValidateResponseWaiter responseWaiter = () -> {
             RestAssured.baseURI = TestConfigurations.getApiUrl();
             return given()
                     .relaxedHTTPSValidation()
-                    .auth().oauth2(token)
                     .contentType(ContentType.JSON)
                     .header("Accept", "application/vnd.github.inertia-preview+json")
                     .body(body)

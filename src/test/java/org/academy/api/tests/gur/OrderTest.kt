@@ -18,7 +18,7 @@ class OrderTest {
         )
         val mapper = ObjectMapper()
         val body = mapper.writeValueAsString(order)
-        val response = orderRequests.createOrder(TestConfigurations.getApiToken(), body,201)
+        val response = orderRequests.createOrder(body,201)
         Assertions.assertThat(response.statusCode).isEqualTo(201)
     }
 }
