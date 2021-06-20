@@ -23,7 +23,7 @@ public class PostRequests {
             return given()
                     .relaxedHTTPSValidation()
                     .contentType(ContentType.JSON)
-                    .header("Accept", "application/vnd.github.inertia-preview+json")
+                    .header("Accept", "application/json")
                     .body(body)
                     .when()
                     .post(resources)

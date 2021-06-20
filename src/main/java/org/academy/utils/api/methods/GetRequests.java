@@ -24,7 +24,7 @@ public class GetRequests {
             return given()
                     .relaxedHTTPSValidation()
                     .contentType(ContentType.JSON)
-                    .header("Accept", "application/vnd.github.v3+json")
+                    .header("Accept", "application/json")
                     .when()
                     .get(resources)
                     .then();

@@ -23,8 +23,12 @@ class RegisterTest: AbstractWebDriver() {
 
     @Test(priority = 1)
     fun positiveUserRegisterTest() {
-        val login = "qwerty1uiopl2kjhg3fdsa" + Random.nextInt() * Random.nextInt() + "@gmail.com"
+        val login = "tests" + Random.nextInt() * Random.nextInt() + "@gmail.com"
         loginPage = registerPage
+            .fillLoginField(login)
+            .fillPassField(TestConfigurations.getPassword())
+            .clickOnSubmit()
+        loginPage
             .fillLoginField(login)
             .fillPassField(TestConfigurations.getPassword())
             .clickOnSubmit()
@@ -40,19 +44,19 @@ class RegisterTest: AbstractWebDriver() {
         restaurantsPage.clickOnSignOutButton()
     }
 
-    @Test(priority = 2)
-    fun positiveCourierRegisterTest() {
-        val login = "zxcvbn35mlkjhgfdsaw984" + Random.nextInt() * Random.nextInt() + "@gmail.com"
-        loginPage = registerPage
-            .clickOnRegisterCourierButton()
-            .fillLoginField(login)
-            .fillPassField(TestConfigurations.getPassword())
-            .clickOnSubmit()
-        finishRegisterPage = loginPage.firstCourierLogin(login, TestConfigurations.getPassword())
-        restaurantsPage = finishRegisterPage
-            .fillNameField(TestConfigurations.getNameText())
-            .fillPhoneField(TestConfigurations.getPhone())
-            .clickOnSubmit()
-    }
+//    @Test(priority = 2)
+//    fun positiveCourierRegisterTest() {
+//        val login = "wefbjew" + Random.nextInt() * Random.nextInt() + "@gmail.com"
+//        loginPage = registerPage
+//            .clickOnRegisterCourierButton()
+//            .fillLoginField(login)
+//            .fillPassField(TestConfigurations.getPassword())
+//            .clickOnSubmit()
+//        finishRegisterPage = loginPage.firstCourierLogin(login, TestConfigurations.getPassword())
+//        restaurantsPage = finishRegisterPage
+//            .fillNameField(TestConfigurations.getNameText())
+//            .fillPhoneField(TestConfigurations.getPhone())
+//            .clickOnSubmit()
+//    }
 
 }
